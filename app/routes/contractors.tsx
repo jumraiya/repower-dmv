@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export const meta: MetaFunction = () => [
   { title: "Contractor List | re:Power DMV" },
