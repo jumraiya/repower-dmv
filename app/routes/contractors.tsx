@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useState, useEffect } from "react";
+import Select from "react-select";
 
 export const meta: MetaFunction = () => [
   { title: "Contractor List | re:Power DMV" },
@@ -74,19 +75,19 @@ const contractors: Contractor[] = [
 
 const filterContractors = (
   contractors: Contractor[],
-  selectedStates: string[],
-  selectedServices: string[],
+  selectedState: State | undefined,
+  selectedServices: Service[],
 ) => {
   const filtered = contractors.filter((contractor) => {
-    const matchesSelectedStates =
-      selectedStates.length === 0 ||
-      contractor.statesServed.some((state) => selectedStates.includes(state));
+    const matchesSelectedState =
+      selectedState === undefined ||
+      contractor.statesServed.includes(selectedState);
 
     const matchesSelectedServices =
       selectedServices.length === 0 ||
       contractor.services.some((service) => selectedServices.includes(service));
 
-    return matchesSelectedStates && matchesSelectedServices;
+    return matchesSelectedState && matchesSelectedServices;
   });
   return filtered;
 };
@@ -109,63 +110,56 @@ const ContractorBlock = (props: ContractorBlockProps) => {
 };
 
 export default function ContractorList() {
-  const [selectedStates, setSelectedStates] = useState<string[]>([]);
+  const [selectedState, setSelectedState] = useState<State | undefined>();
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [filteredContractors, setFilteredContractors] = useState(contractors);
 
   useEffect(() => {
     const newFilteredContractors = filterContractors(
       contractors,
-      selectedStates,
+      selectedState,
       selectedServices,
     );
     setFilteredContractors(newFilteredContractors);
-  }, [selectedStates, selectedServices]);
+  }, [selectedState, selectedServices]);
+
+  interface Option<Type> {
+    value: Type;
+    label: Type;
+  }
+  const onSelectedStateChanged = (option: Option<State> | null) => {
+    setSelectedState(option?.value);
+  };
+
+  const onSelectedServicesChanged = (options: readonly Option<Service>[]) => {
+    setSelectedServices(options.map((option) => option.value));
+  };
 
   return (
     <main className="relative min-h-screen bg-white p-8">
       <h1 className="text-center text-4xl font-extrabold tracking-tight text-gray-900">
         Contractor List
       </h1>
-      <div className="mt-6 flex flex-wrap justify-center space-x-4">
-        <div>
-          <h3 className="font-bold">Filter by State:</h3>
-          {STATES.map((state) => (
-            <label key={state} className="block">
-              <input
-                type="checkbox"
-                checked={selectedStates.includes(state)}
-                onChange={() => {
-                  setSelectedStates((prev) =>
-                    prev.includes(state)
-                      ? prev.filter((s) => s !== state)
-                      : [...prev, state],
-                  );
-                }}
-              />
-              {state}
-            </label>
-          ))}
-        </div>
-        <div>
-          <h3 className="font-bold">Filter by Service:</h3>
-          {SERVICES.map((service) => (
-            <label key={service} className="block">
-              <input
-                type="checkbox"
-                checked={selectedServices.includes(service)}
-                onChange={() => {
-                  setSelectedServices((prev) =>
-                    prev.includes(service)
-                      ? prev.filter((p) => p !== service)
-                      : [...prev, service],
-                  );
-                }}
-              />
-              {service}
-            </label>
-          ))}
-        </div>
+      <div className="mt-6 flex items-center justify-center space-x-4">
+        <h3 className="font-bold">Filter by:</h3>
+        <Select<Option<State>>
+          isClearable
+          placeholder="Anywhere"
+          options={STATES.map((state) => ({
+            value: state,
+            label: state,
+          }))}
+          onChange={onSelectedStateChanged}
+        />
+        <Select<Option<Service>, true>
+          isMulti
+          placeholder="Any service"
+          options={SERVICES.map((service) => ({
+            value: service,
+            label: service,
+          }))}
+          onChange={onSelectedServicesChanged}
+        />
       </div>
       <ul className="mt-6 space-y-4">
         {filteredContractors.map((contractor) => (
