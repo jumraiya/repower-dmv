@@ -2,76 +2,36 @@ import type { MetaFunction } from "@remix-run/node";
 import { useState, useEffect } from "react";
 import Select from "react-select";
 
+import { CONTRACTORS, STATES, SERVICES } from "../data";
+import { State, Service, Contractor, Address } from "../types";
+
 export const meta: MetaFunction = () => [
   { title: "Contractor List | re:Power DMV" },
 ];
 
-const STATES = ["DC", "MD", "VA"] as const;
-type State = (typeof STATES)[number];
-const SERVICES = [
-  "Energy Audit",
-  "Weatherization",
-  "HVAC",
-  "Electrical",
-  "Water Heater",
-  "Appliances",
-];
-type Service = (typeof SERVICES)[number];
-interface Address {
-  line1: string;
-  line2: string;
-  state: State;
-  zipCode: string;
-}
-
-interface Contractor {
-  name: string;
-  address: Address;
+interface PhoneLinkProps {
   phoneNumber: string;
-  statesServed: string[];
-  // todo: define service types
-  services: Service[];
 }
 
-const contractors: Contractor[] = [
-  {
-    name: "Eco Home Solutions",
-    address: {
-      line1: "123 Green St",
-      line2: "Suite 100",
-      state: "MD",
-      zipCode: "12345",
-    },
-    phoneNumber: "1234567890",
-    statesServed: ["MD"],
-    services: ["Energy Audit", "HVAC"],
-  },
-  {
-    name: "Green Energy Pros",
-    address: {
-      line1: "456 Eco Ave",
-      line2: "",
-      state: "VA",
-      zipCode: "23456",
-    },
-    phoneNumber: "2345678901",
-    statesServed: ["VA"],
-    services: ["Weatherization", "Electrical"],
-  },
-  {
-    name: "Sustainable Living Co.",
-    address: {
-      line1: "789 Renewable Rd",
-      line2: "Floor 2",
-      state: "DC",
-      zipCode: "34567",
-    },
-    phoneNumber: "3456789012",
-    statesServed: ["DC"],
-    services: ["Water Heater", "Appliances"],
-  },
-  // Add more contractors as needed
-];
+const PhoneLink = (props: PhoneLinkProps) => {
+  const { phoneNumber } = props;
+  const formattedPhoneNumber = `(${phoneNumber.slice(0, 3)})${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6)}`;
+  return <a href={`tel:+1${phoneNumber}`}>{formattedPhoneNumber}</a>;
+};
+
+interface AddressBlockProps {
+  address: Address;
+}
+
+const AddressBlock = ({ address }: AddressBlockProps) => {
+  return (
+    <>
+      <p>{address.line1}</p>
+      {address.line2 ? <p>{address.line2}</p> : null}
+      <p>{`${address.city}, ${address.state} ${address.zipCode}`}</p>
+    </>
+  );
+};
 
 const filterContractors = (
   contractors: Contractor[],
@@ -99,11 +59,22 @@ interface ContractorBlockProps {
 const ContractorBlock = (props: ContractorBlockProps) => {
   const { contractor } = props;
   return (
-    <li key={contractor.name}>
-      <div className="border-b border-gray-200 pb-4">
-        <h2 className="text-xl font-bold">{contractor.name}</h2>
-        <p>States Served: {contractor.statesServed.join(", ")}</p>
-        <p>Services Offered: {contractor.services.join(", ")}</p>
+    <li key={contractor.name} className="flex justify-center">
+      <div className="flex w-full max-w-2xl items-center overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md">
+        <div className="flex-shrink-0">
+          <img
+            className="h-24 w-24 object-cover"
+            src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg"
+            alt="Placeholder"
+          />
+        </div>
+        <div className="p-4">
+          <h2 className="text-xl font-bold">{contractor.name}</h2>
+          <PhoneLink phoneNumber={contractor.phoneNumber} />
+          <AddressBlock address={contractor.address} />
+          <p>States Served: {contractor.statesServed.join(", ")}</p>
+          <p>Services Offered: {contractor.services.join(", ")}</p>
+        </div>
       </div>
     </li>
   );
@@ -112,11 +83,11 @@ const ContractorBlock = (props: ContractorBlockProps) => {
 export default function ContractorList() {
   const [selectedState, setSelectedState] = useState<State | undefined>();
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
-  const [filteredContractors, setFilteredContractors] = useState(contractors);
+  const [filteredContractors, setFilteredContractors] = useState(CONTRACTORS);
 
   useEffect(() => {
     const newFilteredContractors = filterContractors(
-      contractors,
+      CONTRACTORS,
       selectedState,
       selectedServices,
     );
