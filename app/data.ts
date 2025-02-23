@@ -14,7 +14,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "4432169169",
     statesServed: ["MD", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater"],
+    services: ["Energy Audit", "Electrical"],
   },
   {
     name: "Accurate Insulation, LLC",
@@ -27,7 +27,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "3016276506",
     statesServed: ["MD", "VA"],
-    services: ["Energy Audit", "Weatherization", "Water Heater"],
+    services: ["Weatherization", "Water Heater"],
   },
   {
     name: "Advanced Green Home Solutions",
@@ -40,7 +40,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "4435756592",
     statesServed: ["MD", "VA", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "HVAC", "Appliances"],
   },
   {
     name: "AHS Inc.",
@@ -53,7 +53,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "3013995119",
     statesServed: ["MD", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["HVAC", "Electrical"],
   },
   {
     name: "American Home Builders Inc.",
@@ -66,7 +66,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "4103910500",
     statesServed: ["MD", "VA"],
-    services: ["Weatherization", "Water Heater"],
+    services: ["Energy Audit"],
   },
   {
     name: "American Home Performance, LLC",
@@ -79,7 +79,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "2407437115",
     statesServed: ["MD", "VA", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "Weatherization", "HVAC", "Electrical"],
   },
   {
     name: "Atlas Home Energy Solutions",
@@ -92,7 +92,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "3013645055",
     statesServed: ["MD", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Weatherization", "Water Heater"],
   },
   {
     name: "Building Energy Pros",
@@ -105,7 +105,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "2402525292",
     statesServed: ["VA", "MD"],
-    services: ["Energy Audit", "Weatherization", "Water Heater"],
+    services: ["Energy Audit", "HVAC"],
   },
   {
     name: "C.A.R.E. Property Services, Inc.",
@@ -118,7 +118,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "7176343060",
     statesServed: ["MD", "VA", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Weatherization", "HVAC", "Electrical"],
   },
   {
     name: "Comfort Kings",
@@ -131,7 +131,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "6674733011",
     statesServed: ["MD", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "Water Heater"],
   },
   {
     name: "Complete Home Solutions, LLC",
@@ -144,7 +144,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "4108671202",
     statesServed: ["MD"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "HVAC", "Appliances"],
   },
   {
     name: "Constellation Home",
@@ -157,7 +157,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "8882434663",
     statesServed: ["MD", "VA"],
-    services: ["Energy Audit", "Weatherization", "Water Heater"],
+    services: ["Weatherization", "Electrical"],
   },
   {
     name: "CroppMetCalfe",
@@ -170,7 +170,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "7036988855",
     statesServed: ["VA", "MD"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["HVAC", "Electrical", "Energy Audit"],
   },
   {
     name: "Devere Insulation Home Performance",
@@ -183,7 +183,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "4437701111",
     statesServed: ["MD", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater"],
+    services: ["Weatherization"],
   },
   {
     name: "EcoMize USA, LLC",
@@ -196,7 +196,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "4104467283",
     statesServed: ["MD", "VA"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "HVAC"],
   },
   {
     name: "EDGE Energy",
@@ -209,7 +209,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "8885863343",
     statesServed: ["MD"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Weatherization", "Electrical", "Appliances"],
   },
   {
     name: "Efficient Home, LLC",
@@ -222,7 +222,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "3014767680",
     statesServed: ["MD", "VA", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "HVAC", "Water Heater"],
   },
   {
     name: "Elysian Energy, LLC",
@@ -235,7 +235,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "2404240523",
     statesServed: ["MD", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater"],
+    services: ["Energy Audit", "Weatherization"],
   },
   {
     name: "Ener G, LLC",
@@ -248,7 +248,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "3013631148",
     statesServed: ["MD", "VA"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "HVAC", "Electrical"],
   },
   {
     name: "Energy Efficiency Experts",
@@ -261,7 +261,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "2025579200",
     statesServed: ["MD", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "Weatherization", "Electrical", "Water Heater"],
   },
   {
     name: "Future Green Services",
@@ -274,7 +274,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "4434962655",
     statesServed: ["DC", "MD"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["HVAC", "Appliances"],
   },
   {
     name: "Green-Energy 360",
@@ -287,7 +287,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "2403976901",
     statesServed: ["MD", "VA"],
-    services: ["Energy Audit", "Weatherization", "Water Heater"],
+    services: ["Energy Audit", "Water Heater"],
   },
   {
     name: "Greenworks Systems, LLC",
@@ -300,7 +300,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "4436043161",
     statesServed: ["MD", "DC"],
-    services: ["Energy Audit", "Weatherization"],
+    services: ["Weatherization", "Electrical"],
   },
   {
     name: "Home Energy HERO, LLC",
@@ -313,7 +313,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "8884904376",
     statesServed: ["MD"],
-    services: ["Energy Audit", "Weatherization", "Water Heater"],
+    services: ["Energy Audit", "HVAC", "Electrical"],
   },
   {
     name: "Home Energy Medics",
@@ -326,7 +326,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "7034475379",
     statesServed: ["VA", "MD"],
-    services: ["Energy Audit", "Weatherization", "HVAC"],
+    services: ["HVAC", "Water Heater"],
   },
   {
     name: "Home Energy Saving Solutions",
@@ -352,7 +352,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "3019576532",
     statesServed: ["MD", "DC"],
-    services: ["Energy Audit", "Weatherization"],
+    services: ["Electrical", "Appliances"],
   },
   {
     name: "Lumeco Energy",
@@ -365,7 +365,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "3018527663",
     statesServed: ["MD", "VA", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "HVAC", "Weatherization", "Water Heater"],
   },
   {
     name: "Potomac View Energy, Inc.",
@@ -378,7 +378,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "4432776307",
     statesServed: ["MD"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "HVAC"],
   },
   {
     name: "Shepherd Design and Construction",
@@ -391,7 +391,7 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "2404628927",
     statesServed: ["MD", "VA"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Electrical", "Appliances", "HVAC"],
   },
   {
     name: "SM Mechanical LLC",
@@ -404,6 +404,136 @@ export const CONTRACTORS: Contractor[] = [
     },
     phoneNumber: "4105985515",
     statesServed: ["MD", "DC"],
-    services: ["Energy Audit", "Weatherization", "Water Heater", "HVAC"],
+    services: ["Energy Audit", "Weatherization", "Electrical"],
+  },
+  {
+    name: "Smart Energy Pros",
+    address: {
+      line1: "745 Weatherbee Rd",
+      line2: "",
+      city: "Towson",
+      state: "MD",
+      zipCode: "21286",
+    },
+    phoneNumber: "4436908233",
+    statesServed: ["MD", "VA"],
+    services: ["HVAC"],
+  },
+  {
+    name: "Son-Rise Energy Conservation LLC",
+    address: {
+      line1: "1088 Poole Rd",
+      line2: "",
+      city: "Hedgesville",
+      state: "MD",
+      zipCode: "25427",
+    },
+    phoneNumber: "4435067188",
+    statesServed: ["MD", "DC"],
+    services: ["Energy Audit", "Weatherization", "Electrical"],
+  },
+  {
+    name: "Superior Energy Solutions",
+    address: {
+      line1: "8713 Cowenton Avenue",
+      line2: "",
+      city: "Perry Hall",
+      state: "MD",
+      zipCode: "21128",
+    },
+    phoneNumber: "4102563839",
+    statesServed: ["MD", "VA"],
+    services: ["Energy Audit", "HVAC", "Water Heater"],
+  },
+  {
+    name: "Terra Insulation",
+    address: {
+      line1: "15428 Narcissus Way",
+      line2: "",
+      city: "Rockville",
+      state: "MD",
+      zipCode: "20853",
+    },
+    phoneNumber: "3016608579",
+    statesServed: ["MD", "DC"],
+    services: ["Weatherization", "Electrical"],
+  },
+  {
+    name: "USA Energy Co. Inc",
+    address: {
+      line1: "1100 Batavia Farm Rd",
+      line2: "",
+      city: "Baltimore",
+      state: "MD",
+      zipCode: "21237",
+    },
+    phoneNumber: "4432315698",
+    statesServed: ["MD"],
+    services: ["Energy Audit", "Electrical"],
+  },
+  {
+    name: "USA Insulation of Central MD and Fairfax, VA",
+    address: {
+      line1: "7387 Washington Blvd",
+      line2: "#105",
+      city: "Elkridge",
+      state: "MD",
+      zipCode: "21075",
+    },
+    phoneNumber: "210753048392560",
+    statesServed: ["MD", "VA", "DC"],
+    services: ["Weatherization", "Energy Audit", "HVAC"],
+  },
+  {
+    name: "Vets Corp",
+    address: {
+      line1: "33 Maryland Ave",
+      line2: "",
+      city: "Gaithersburg",
+      state: "MD",
+      zipCode: "20877",
+    },
+    phoneNumber: "2403169209",
+    statesServed: ["MD", "VA"],
+    services: ["Energy Audit", "Weatherization", "Water Heater", "Electrical"],
+  },
+  {
+    name: "Windows on Washington",
+    address: {
+      line1: "23465 Rock Haven Way",
+      line2: "",
+      city: "Dulles",
+      state: "VA",
+      zipCode: "20165",
+    },
+    phoneNumber: "7033781190",
+    statesServed: ["VA", "DC"],
+    services: ["Electrical"],
+  },
+  {
+    name: "Winner Insulation",
+    address: {
+      line1: "2833 Smith Ave.",
+      line2: "",
+      city: "Baltimore",
+      state: "MD",
+      zipCode: "21209",
+    },
+    phoneNumber: "8889948505",
+    statesServed: ["MD", "DC"],
+    services: ["Energy Audit", "HVAC"],
+  },
+  {
+    name: "York Home Performance",
+    address: {
+      line1: "1052 Mt Rose Ave",
+      line2: "",
+      city: "York",
+      state: "MD",
+      zipCode: "17403",
+    },
+    phoneNumber: "7174903810",
+    statesServed: ["MD", "VA"],
+    services: ["Energy Audit", "HVAC", "Electrical", "Water Heater"],
   },
 ];
