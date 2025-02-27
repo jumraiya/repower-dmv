@@ -12,7 +12,7 @@ Click this button to create a [Gitpod](https://gitpod.io) workspace with the pro
 
 - Initial setup:
 
-  clone the repo and cd into the directory
+  Fork the repo, clone it, and cd into the directory
 
   ```sh
   cp .env.example .env
