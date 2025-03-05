@@ -83,7 +83,8 @@
     "vitest": "^3.0.7"
   },
   "overrides": {
-    "cookie": "^1.0.2"
+    "cookie": "^1.0.2",
+    "esbuild": "^0.25.0"
   },
   "engines": {
     "node": ">=18.0.0"
