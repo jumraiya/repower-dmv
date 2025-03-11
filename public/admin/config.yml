@@ -4,6 +4,7 @@ backend:
   name: github
   repo: civictechdc/repower-dmv
   branch: cms-content-updates
+  base_url: https://decap.sheldonb.com
 
 media_folder: assets/cms-uploads
 public_folder: public/build
