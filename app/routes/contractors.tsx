@@ -2,10 +2,16 @@ import type { MetaFunction } from "@remix-run/node";
 import { useState, useEffect } from "react";
 import Select from "react-select";
 
+import { getContractors } from "~/models/contractor.server";
+
 import content from "../content/contractors.json";
 import { CONTRACTORS, STATES, SERVICES } from "../data";
 import { State, Service, Contractor, Address } from "../types";
 
+export async function loader() {
+  const data = await getContractors();
+  return data;
+}
 export const meta: MetaFunction = () => [
   { title: "Contractor List | re:Power DMV" },
 ];
