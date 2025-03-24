@@ -8,21 +8,50 @@ export const SERVICES = [
   "Appliances",
 ];
 
-export type State = (typeof STATES)[number];
-export type Service = (typeof SERVICES)[number];
+export interface State {
+  state: string;
+}
 
-export interface Address {
-  line1: string;
-  line2: string;
-  city: string;
-  state: State;
-  zipCode: string;
+export interface Service {
+  serviceName: string;
 }
 
 export interface Contractor {
+  createdAt: Date;
+  updatedAt: Date;
   name: string;
-  address: Address;
-  phoneNumber: string;
-  statesServed: string[];
+  email: string;
+  phone: string;
+  website: string;
+  addressLine1: string;
+  addressLine2: string;
+  city: string;
+  state: string;
+  zip: string;
+  statesServed: State[];
   services: Service[];
 }
+
+export type SerializedContractor = Omit<
+  Contractor,
+  "createdAt" | "updatedAt"
+> & {
+  createdAt: string;
+  updatedAt: string;
+};
+
+export const deserializeContractor = (
+  serialized: SerializedContractor,
+): Contractor => {
+  return {
+    ...serialized,
+    createdAt: new Date(serialized.createdAt),
+    updatedAt: new Date(serialized.createdAt),
+  };
+};
+
+export const deserializeContractors = (
+  serialized: SerializedContractor[],
+): Contractor[] => {
+  return serialized.map((obj) => deserializeContractor(obj));
+};
