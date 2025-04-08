@@ -139,3 +139,48 @@ This project uses ESLint for linting. That is configured in `.eslintrc.cjs`.
 ### Formatting
 
 We use [Prettier](https://prettier.io/) for auto-formatting in this project. It's recommended to install an editor plugin (like the [VSCode Prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)) to get auto-formatting on save. There's also a `npm run format` script you can run to format all files in the project.
+
+### Content Management System
+
+We use [Decap-CMS](https://decapcms.org/) as a content management system. This allows users who belong to the GitHub repository to sign into a special `/admin/` portal to edit any content that is managed by the CMS.
+
+There is a specific deployed environment where the CMS system is enabled. In other environments it is disabled. It is also enabled in local environments, but you must run the CMS server separately for it to work correctly.
+
+#### The Content Environment
+
+The content environment is deployed at [https://repower-dmv-content.fly.dev/](https://repower-dmv-content.fly.dev/). The CMS admin panel is located at [https://repower-dmv-content.fly.dev/admin/](https://repower-dmv-content.fly.dev/admin/) (note: the trailing slash is important! `/admin` will not work).
+
+The content environment is deployed from the `cms-content-updates` branch and changes made in the content environment are committed to the `cms-content-updates` branch. When new changes are committed they will trigger a new deployment and after a few minutes the changes will be visible in the application.
+
+The Decap-CMS backend is configured in [app/content/content-backend.yml](./app/content/content-backend.yml).
+
+#### CMS in Local Development
+
+The CMS is also enabled for local development but it runs with a different backend than in deployed environments. In order for it to function correctly you must be running the Decap server locally:
+
+```
+npx decap-server
+```
+
+**If you are prompted for a username and password when you try to use the CMS admin panel locally you probably aren't running the Decap server.**
+
+The Decap-CMS backend is configured in [app/content/local-backend.yml](./app/content/local-backend.yml).
+
+#### Implementation and Configuration
+
+The implementation is somewhat complicated so it's described here:
+
+- There are custom routes implemented for the `/admin/` and `/admin/config.yml` paths. They have logic which checks the `DEPLOY_ENV` environment variable and if it is not set to one of `local` or `content` then they simply return 404. This is the case for all deployed environments except for the content environment.
+- `/admin/` path:
+  - when `DEPLOY_ENV` is set to `content` or `local`, returns some static HTML which then serves the DecapCMS frontend from a CDN cache. The HTML is copy/pasted from the Decap-CMS setup docs.
+- `/admin/config.yml` path:
+  - If the `DEPLOY_ENV` value is set to `content` then [app/content/content-backend.yml](./app/content/content-backend.yml) is merged with [app/content/config.yml](./app/content/config.yml) and returned.
+  - If the `DEPLOY_ENV` value is set to `local` then [app/content/local-backend.yml](./app/content/local-backend.yml) is merged with [app/content/config.yml](./app/content/config.yml) and returned.
+
+#### Managing Content in the CMS
+
+In order for content to be managed by the CMS it needs to be configured. That means:
+
+1. Making sure the information architecture is defined in [app/content/config.yml](./app/content/config.yml).
+2. Storing the content strings in a JSON file inside the [app/content/](./app/content/) directory.
+3. Where the content is used in the application, import it from the relevant JSON file using the appropriate key. You can import entire JSON files like this: `import content from "../content/apply.json";`
