@@ -1,5 +1,7 @@
 import { faker } from "@faker-js/faker";
 
+import {STATES, CERTIFICATIONS, SERVICES} from "../../app/types";
+
 describe("smoke tests", () => {
   afterEach(() => {
     cy.cleanupUser();
@@ -50,3 +52,40 @@ describe("smoke tests", () => {
   });
 });
 
+// Workflows that don't require a login
+describe("non-auth workflows", () => {
+  it("should allow contractors to request to be listed", () => {
+    const testContractor = {
+      name: faker.company.name(),
+      email: faker.internet.email(),
+      phone: faker.phone.number({style: 'national'}),
+      website: faker.internet.url(),
+      addressLine1: faker.location.streetAddress(),
+      city: faker.location.city(),
+      state: STATES[Math.floor(Math.random() * STATES.length)],
+      zip: faker.location.zipCode(),
+      statesServed: [STATES[0], STATES[1]],
+      services: [SERVICES[0], SERVICES[1]],
+      certifications: [CERTIFICATIONS[0], CERTIFICATIONS[1]]
+    };
+    cy.visitAndCheck("/apply");
+    cy.get("#name").type(testContractor.name);
+    cy.get("#email").type(testContractor.email);
+    cy.get("#phone").type(testContractor.phone);
+    cy.get("#website").type(testContractor.website);
+    cy.get("#addressLine1").type(testContractor.addressLine1);
+    cy.get("#city").type(testContractor.city);
+    cy.get("#zip").type(testContractor.zip);
+    cy.get("#stateSelect").select(testContractor.state);
+    cy.get("#state_served_0").check();
+    cy.get("#state_served_1").check();
+    cy.get("#service_0").check();
+    cy.get("#service_1").check();
+    cy.get("#certification_0").check();
+    cy.get("#certification_1").check();
+    cy.get("button[type=\"submit\"]").click();
+    cy.location().should((loc) => {
+      expect(loc.pathname).to.eq('/');
+    });
+  });
+});

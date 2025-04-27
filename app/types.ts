@@ -15,15 +15,18 @@ export const CERTIFICATIONS = [
 ];
 
 export interface State {
+  id: number,
   name: string;
 }
 
 export interface Service {
+  id: number,
   name: string;
   description: string;
 }
 
 export interface Certification {
+  id: number,
   name: string;
   shortName: string;
   description: string;
@@ -43,4 +46,20 @@ export interface Contractor {
   statesServed: State[];
   services: Service[];
   certifications: Certification[];
+}
+
+export interface CreateContractorPayload {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  website: string;
+  addressLine1: string;
+  addressLine2: string;
+  city: string;
+  state: string;
+  zip: string;
+  statesServed: string[];
+  services: string[];
+  certifications: string[];
 }
