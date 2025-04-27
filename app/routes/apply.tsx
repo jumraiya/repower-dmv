@@ -28,7 +28,7 @@ export const meta: MetaFunction = () => [
 ];
 
 // TODO: Change this to different one
-const REDIRECT_URL = "/";
+const REDIRECT_URL = "/applied";
 
 interface ContractorBlockProps {
   errors?: Record<string, string>;
