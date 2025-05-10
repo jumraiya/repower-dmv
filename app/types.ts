@@ -7,26 +7,21 @@ export const SERVICES = [
   "Water Heater",
   "Appliances",
 ];
-export const CERTIFICATIONS = [
-  "CEA",
-  "HEP",
-  "BPI-ALCI",
-  "BPI-ACHPP",
-];
+export const CERTIFICATIONS = ["CEA", "HEP", "BPI-ALCI", "BPI-ACHPP"];
 
 export interface State {
-  id: number,
+  id: number;
   name: string;
 }
 
 export interface Service {
-  id: number,
+  id: number;
   name: string;
   description: string;
 }
 
 export interface Certification {
-  id: number,
+  id: number;
   name: string;
   shortName: string;
   description: string;
@@ -46,6 +41,7 @@ export interface Contractor {
   statesServed: State[];
   services: Service[];
   certifications: Certification[];
+  distance?: number | undefined;
 }
 
 export interface CreateContractorPayload {
@@ -62,4 +58,17 @@ export interface CreateContractorPayload {
   statesServed: string[];
   services: string[];
   certifications: string[];
+}
+
+export interface ContractorResponse {
+  contractors: Contractor[],
+  totalPages: number,
+  currentPage: number  
+}
+
+export interface ContractorFilters {
+  stateServed: string;
+  services: string[];
+  certifications: string[];
+  zip: string;
 }
