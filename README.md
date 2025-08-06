@@ -1,6 +1,6 @@
 # ElectrifyDC
 
-This is the Civic Tech DC repo for the Electrify DC website project.
+This is the forked Civic Tech DC repo for the Electrify DC website project.
 
 ## Tools we use
 
