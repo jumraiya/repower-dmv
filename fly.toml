@@ -1,4 +1,4 @@
-app = "repower-dmv"
+app = "repower-dmv-fork"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = [ ]
