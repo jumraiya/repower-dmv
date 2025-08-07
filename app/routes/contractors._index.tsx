@@ -118,7 +118,9 @@ const ContractorBlock = (props: ContractorBlockProps) => {
               ))}
             </ul>
             <ul>
-              {contractor.certifications.map((item, index) => (
+              {contractor.certifications
+              .filter((cert => CERTIFICATIONS.includes(cert.shortName)))
+              .map((item, index) => (
                 <li
                   key={index}
                   className="mr-1 inline-block rounded-full bg-orange-100 px-2 text-xs text-orange-800"

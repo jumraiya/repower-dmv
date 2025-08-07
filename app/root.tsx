@@ -36,11 +36,11 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
-        <Navbar />
-        <main className="relative min-h-screen bg-white p-4 md:p-8 mt-[160px] md:mt-[144px]">
+        {/* <Navbar /> */}
+        <main className="relative min-h-screen bg-white p-4 md:p-8">
           <Outlet />
         </main>
-        <Footer />
+        {/* <Footer /> */}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
